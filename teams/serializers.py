@@ -19,3 +19,8 @@ class TeamSerializer(serializers.ModelSerializer):
     class Meta:
         model = Team
         fields = '__all__'
+
+    def validate(self, data):
+        if len(data['pokemons']) > 6:
+            raise serializers.ValidationError({"pokemons": "Max 6 pokemons allowed"})
+        return data
