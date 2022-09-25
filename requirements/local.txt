@@ -1,0 +1,6 @@
+django-factory-boy==1.0.0
+factory-boy==3.2.1
+Faker==14.2.1
+pre-commit==2.20.0
+requests==2.28.1
+virtualenv==20.16.5
