@@ -37,7 +37,6 @@ CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOWED_ORIGINS = [env('CORS_ALLOWED_ORIGINS'),]
 ROOT_URLCONF = 'config.urls'
 WSGI_APPLICATION = 'config.wsgi.application'
-# AUTH_USER_MODEL = 'accounts.User'
 
 '''
 ***********************
@@ -69,9 +68,11 @@ DJANGO_APPS = [
 ]
 
 APPLICATION_APPS = [
+    'teams'
 ]
 
 THIRD_PARTIES_APPS = [
+    'rest_framework'
 ]
 
 INSTALLED_APPS = DJANGO_APPS + APPLICATION_APPS + THIRD_PARTIES_APPS
@@ -160,8 +161,6 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'social_django.context_processors.backends',
-                'social_django.context_processors.login_redirect',
             ],
         },
     },
