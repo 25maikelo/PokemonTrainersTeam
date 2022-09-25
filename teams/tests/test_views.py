@@ -2,7 +2,7 @@ from django.test import TestCase, Client
 from django.urls import reverse
 from rest_framework import status
 
-from teams.tests.factories import TeamFactory, TrainerFactory
+from teams.tests.factories import PokemonFactory, TeamFactory, TrainerFactory
 from teams.models import Team, Trainer
 
 # Trainer Test Views
@@ -221,3 +221,17 @@ class TeamViewSetTestCase(TestCase):
             delete_url = reverse('api:team-detail', kwargs={'pk': 0})  # Fake PK
             response = self.client.delete(delete_url)
             self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
+
+
+# Pokemon Test Views
+class PokemonViewSetTestCase(TestCase):
+
+    def setUp(self):
+        self.client = Client()
+
+    def test_get_list(self):
+
+        list_url = reverse('api:pokemon-list')
+        response = self.client.get(list_url)
+
+        self.assertEqual(response.status_code, status.HTTP_200_OK)

@@ -8,4 +8,5 @@ router.register(r'team', team_views.TeamViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
+    path('pokemon/', team_views.PokemonList.as_view(),name='pokemon-list'),
 ]
