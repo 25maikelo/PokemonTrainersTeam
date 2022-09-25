@@ -1,11 +1,9 @@
 import requests
-from rest_framework import status, viewsets
-from rest_framework.views import APIView
-from rest_framework.response import Response
+from rest_framework import viewsets
 
 from config.settings.base import API_URL
 from .models import Trainer, Pokemon, Team
-from .serializers import TrainerSerializer, PokemonSerializer, TeamSerializer
+from .serializers import TrainerSerializer, TeamSerializer
 
 
 class TrainerViewSet(viewsets.ModelViewSet):
