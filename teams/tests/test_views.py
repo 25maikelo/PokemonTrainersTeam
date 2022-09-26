@@ -20,7 +20,7 @@ class TrainerViewSetTestCase(TestCase):
 
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(
-            set(trainer.get('id') for trainer in response.data.get('results')),
+            set(trainer.get('id') for trainer in response.data),
             set(trainer.id for trainer in trainers)
         )
 
@@ -126,7 +126,7 @@ class TeamViewSetTestCase(TestCase):
 
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(
-            set(team.get('id') for team in response.data.get('results')),
+            set(team.get('id') for team in response.data),
             set(team.id for team in teams)
         )
 
@@ -197,7 +197,7 @@ class TeamViewSetTestCase(TestCase):
             response = self.client.put(put_url, data=self.data, content_type='application/json')
             self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
-            # The object was not updated
+            # The object was not updatedf
             team.refresh_from_db()
             self.assertNotEqual(team.name, self.data.get('name'))
 
