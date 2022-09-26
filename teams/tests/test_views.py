@@ -2,7 +2,7 @@ from django.test import TestCase, Client
 from django.urls import reverse
 from rest_framework import status
 
-from teams.tests.factories import PokemonFactory, TeamFactory, TrainerFactory
+from teams.tests.factories import TeamFactory, TrainerFactory
 from teams.models import Team, Trainer
 
 # Trainer Test Views
