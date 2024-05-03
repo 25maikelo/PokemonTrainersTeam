@@ -30,6 +30,7 @@ class TeamViewSet(viewsets.ModelViewSet):
 
 # Pokemon Views
 class PokemonList(APIView):
+    """Pokemon List View"""
 
     def get(self, request, *args, **kwargs):
 
