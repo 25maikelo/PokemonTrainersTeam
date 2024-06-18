@@ -72,7 +72,7 @@ APPLICATION_APPS = [
 ]
 
 THIRD_PARTIES_APPS = [
-    'rest_framework'
+    'rest_framework',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + APPLICATION_APPS + THIRD_PARTIES_APPS

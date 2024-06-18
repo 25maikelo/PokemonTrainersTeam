@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}Teams{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <h2>Teams</h2>
+        <table class="table table-bordered mt-3">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Trainer</th>
+                    <th>Pokemons</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for team in teams %}
+                <tr>
+                    <td>{{ team.name }}</td>
+                    <td>{{ team.trainer.name }}</td>
+                    <td>{% for pokemon in team.pokemons.all %}{{ pokemon.name }}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
+                    <td>
+                        <a class="btn btn-warning btn-sm" href="{% url 'api:team-detail' team.id %}">Edit</a>
+                        <form method="post" action="{% url 'api:team-detail' team.id %}" style="display:inline;">
+                            <input type="hidden" name="_method" value="DELETE">
+                            {% csrf_token %}
+                            <button class="btn btn-danger btn-sm" type="submit">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
